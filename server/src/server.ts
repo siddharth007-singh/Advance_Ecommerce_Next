@@ -4,6 +4,9 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import authRoutes from "./routes/authRoutes";
+import productRoutes from "./routes/productRoutes";
+import couponRoutes from "./routes/couponRoutes";
+import settingRoutes from "./routes/settingRoutes";
 
 dotenv.config();
 const app = express();
@@ -24,6 +27,10 @@ app.use(cookieParser());
 export const prisma = new PrismaClient();
 
 app.use('/api/auth', authRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/coupons', couponRoutes);
+app.use('/api/settings', settingRoutes);
+
 
 app.get('/', (req, res) => {
     res.send('Hello backend!');
