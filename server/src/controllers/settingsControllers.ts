@@ -69,8 +69,8 @@ export const updateFeatureProducts = async (req: AuthenticatedRequest, res: Resp
 
 
         await prisma.$transaction([
-            prisma.product.updateMany({ data: { isFeatured: false } }),
-            prisma.product.updateMany({
+            prisma.product.updateMany({ data: { isFeatured: false } }),  //Sare ko phle false kiya 
+            prisma.product.updateMany({   //fir selected prooductId ko true kr diye
                 where: { id: { in: productId } },
                 data: { isFeatured: true },
             }),
