@@ -56,17 +56,6 @@ export const updateFeatureProducts = async (req: AuthenticatedRequest, res: Resp
             return;
         }
 
-        // //first make all product to false
-        // await prisma.product.updateMany({
-        //     data: { isFeatured: false }
-        // });
-
-        // //then update the selected products to true
-        // await prisma.product.updateMany({
-        //     where: { id: { in: productId } },
-        //     data: { isFeatured: true }
-        // });
-
 
         await prisma.$transaction([
             prisma.product.updateMany({ data: { isFeatured: false } }),  //Sare ko phle false kiya 
