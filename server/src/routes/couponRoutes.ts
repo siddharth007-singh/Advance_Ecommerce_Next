@@ -5,10 +5,10 @@ import { authenticateJwt, isSuperAdmin } from '../middleware/authMiddleware';
 
 const router = express.Router();
 
-router.use(authenticateJwt, isSuperAdmin)
+router.use(authenticateJwt)
 
-router.post('/create-coupons', createCoupon);
+router.post('/create-coupons', isSuperAdmin, createCoupon);
 router.get('/fetch-all-coupons', fetchAllCoupons);
-router.delete('/:id', deleteCoupon);
+router.delete('/:id', isSuperAdmin, deleteCoupon);
 
 export default router;
