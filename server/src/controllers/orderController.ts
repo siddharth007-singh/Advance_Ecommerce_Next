@@ -220,8 +220,8 @@ export const updateOrders = async (req: AuthenticatedRequest, res: Response, nex
             return;
         }
 
-        await prisma.order.updateMany({
-            where: { id: orderId, userId },
+        await prisma.order.update({
+            where: { id: orderId },
             data: { status },
         });
 
