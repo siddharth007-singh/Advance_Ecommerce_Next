@@ -9,6 +9,7 @@ import couponRoutes from "./routes/couponRoutes";
 import settingRoutes from "./routes/settingRoutes";
 import cartRouter from "./routes/cartRoutes";
 import addressRouter from "./routes/addressRoutes";
+import orderRoutes from "./routes/orderRoutes";
 
 dotenv.config();
 const app = express();
@@ -34,6 +35,7 @@ app.use('/api/coupons', couponRoutes);
 app.use('/api/settings', settingRoutes);
 app.use('/api/cart', cartRouter);
 app.use('/api/addresses', addressRouter);
+app.use('/api/order', orderRoutes);
 
 
 app.get('/', (req, res) => {
